@@ -302,7 +302,7 @@ def create_visualizations(history):
     plt.title('Loss Curves')
     plt.legend()
     plt.grid(alpha=0.5)
-    plt.savefig('results/loss_metrics.png')
+    plt.savefig('results/loss_metrics_LR.png')
     plt.close()  # Close the figure
     
     # Accuracy plot
@@ -312,7 +312,7 @@ def create_visualizations(history):
     plt.title('Accuracy Curves')
     plt.legend()
     plt.grid(alpha=0.5)
-    plt.savefig('results/accuracy_metrics.png')
+    plt.savefig('results/accuracy_metrics_LR.png')
     plt.close()  # Close the figure
     
 # Main function to run entire workflow
