@@ -16,18 +16,18 @@ torch.manual_seed(1)    # Seed for PyTorch
 np.random.seed(1)       # Random seed for NumPy
 
 # Create a neural network with a variable number of hidden layers
-def build_network(input_dim, hidden_size=64, output_classes=4, num_hidden_layers=4):
+def build_network(input_dim, neuron_count=128, output_classes=4, num_hidden_layers=4):
   
     # Add first / input layer
-    layers = [nn.Linear(input_dim, hidden_size), nn.ReLU()]
+    layers = [nn.Linear(input_dim, neuron_count), nn.ReLU()]
     
     # Add hidden layers 
     for _ in range(num_hidden_layers - 1):
-        layers.append(nn.Linear(hidden_size, hidden_size))
+        layers.append(nn.Linear(neuron_count, neuron_count))
         layers.append(nn.ReLU())
     
     # Add final / output layer
-    layers.append(nn.Linear(hidden_size, output_classes))
+    layers.append(nn.Linear(neuron_count, output_classes))
     
     # Create sequential model by unpacking layers list
     model = nn.Sequential(*layers)
@@ -328,7 +328,7 @@ def run_workflow():
     num_classes = int(torch.max(labels).item()) + 1 # Get number of classes
     model = build_network(
         input_dim=features.shape[1],# Input features
-        hidden_size=64,             # Size of hidden layers
+        neuron_count=128,             # Number of neurons
         output_classes=num_classes, # Number of output classes
         num_hidden_layers=4         # Number of hidden layers
     )
