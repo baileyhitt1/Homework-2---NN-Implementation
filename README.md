@@ -17,5 +17,4 @@ Contains a readme with descirptions of each folder
 - Code with different optimizers
 - Code with different weight initialization approach
 - Code with L2 regularization
-- Visualization of training results for each model
 - Readme explaining the changes made and results observed
